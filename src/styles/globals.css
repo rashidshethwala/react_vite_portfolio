@@ -1,0 +1,103 @@
+:root {
+  --bg: #0b1020;
+  --surface: #121832;
+  --text: #e6e8ee;
+  --muted: #a2a7b9;
+  --brand: #7c5cff;
+  --brand-2: #4fd1c5;
+  --border: #222845;
+  --shadow: 0 10px 30px rgba(0,0,0,.25);
+  --radius: 16px;
+}
+[data-theme="light"] {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --text: #0b1020;
+  --muted: #5a6076;
+  --brand: #5b3df5;
+  --brand-2: #0ea5e9;
+  --border: #e7e9f2;
+}
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: radial-gradient(1000px 600px at -10% -20%, rgba(124,92,255,.15), transparent 50%),
+              radial-gradient(1000px 600px at 110% 120%, rgba(79,209,197,.15), transparent 50%),
+              var(--bg);
+}
+a { color: inherit; text-decoration: none; }
+.container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--surface), color-mix(in oklab, var(--surface), black 6%));
+  padding: 10px 14px; border-radius: 12px; cursor: pointer; font-weight: 600;
+  transition: transform .15s ease, border-color .2s ease, box-shadow .2s ease;
+}
+[data-theme="light"] .btn {
+  background: linear-gradient(180deg, var(--surface), color-mix(in oklab, var(--surface), black 4%));
+  color: var(--text);
+}
+.btn:hover { transform: translateY(-1px); border-color: color-mix(in oklab,var(--brand), white 60%); box-shadow: 0 6px 18px rgba(0,0,0,.18); }
+.btn.primary { background: linear-gradient(180deg, var(--brand), color-mix(in oklab, var(--brand), black 8%)); color: white; border-color: transparent; }
+.grid {
+  display: grid; gap: 20px;
+  grid-template-columns: repeat(12, 1fr);
+}
+.grid-3 { grid-column: span 3; }
+.grid-4 { grid-column: span 4; }
+.grid-6 { grid-column: span 6; }
+.grid-8 { grid-column: span 8; }
+.grid-12 { grid-column: span 12; }
+@media (max-width: 900px) {
+  .grid-3, .grid-4, .grid-6, .grid-8 { grid-column: span 12; }
+}
+.tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.tag {
+  font-size: 12px; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--surface), white 6%); color: var(--muted);
+}
+.hero {
+  display: grid; gap: 18px; padding: 28px; border-radius: 20px;
+  background:
+    radial-gradient(1200px 500px at 80% -40%, rgba(124,92,255,.30), transparent 60%),
+    radial-gradient(1200px 500px at -20% 120%, rgba(79,209,197,.25), transparent 60%),
+    linear-gradient(180deg, color-mix(in oklab, var(--surface), white 6%), var(--surface));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.title { font-size: clamp(28px, 4vw, 44px); line-height: 1.1; margin: 0; }
+.subtitle { font-size: clamp(16px, 2vw, 20px); color: var(--muted); margin: 0; }
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(10px);
+  background: color-mix(in oklab, var(--bg), transparent 70%);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner { display:flex; align-items:center; justify-content:space-between; gap:12px; padding: 14px 24px; }
+.nav a { padding: 8px 10px; border-radius: 10px; }
+.nav a.active { background: color-mix(in oklab,var(--brand), transparent 85%); border: 1px solid color-mix(in oklab,var(--brand), white 60%); }
+.footer { padding: 28px; text-align: center; color: var(--muted); }
+.project-card {
+  display: grid; grid-template-rows: 180px auto; overflow: hidden; border-radius: 16px;
+  border: 1px solid var(--border); background: var(--surface); transition: transform .18s ease;
+}
+.project-card:hover { transform: translateY(-4px); }
+.project-img {
+  width: 100%; height: 100%; object-fit: cover; display: block; background: #0002;
+}
+.project-body { padding: 16px; display: grid; gap: 10px; }
+.section-title { font-size: 22px; margin: 0 0 8px 0; }
+.kpis { display:flex; gap:16px; flex-wrap: wrap; }
+.kpi { padding: 12px 14px; border-radius: 14px; border: 1px solid var(--border); background: var(--surface); min-width: 120px; }
+.kpi .label { color: var(--muted); font-size: 12px; }
+.kpi .value { font-weight: 800; font-size: 20px; }
