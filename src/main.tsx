@@ -10,7 +10,7 @@ document.documentElement.setAttribute('data-theme', theme)
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/react_vite_portfolio/">
       <App />
     </BrowserRouter>
   </React.StrictMode>,
