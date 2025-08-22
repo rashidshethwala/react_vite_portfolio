@@ -2,7 +2,7 @@
   "name": "portfolio-vite-react-ts",
   "private": true,
   "version": "1.0.0",
-  "homepage": "https://yourusername.github.io/react_vite_portfolio",
+  "homepage": "https://rashidshethwala.github.io/react_vite_portfolio",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
